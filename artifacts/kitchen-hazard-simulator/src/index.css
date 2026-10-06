@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+:root {
+  font-family: 'DM Sans', sans-serif;
+  color: #e9e9df;
+  background: #141918;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --ink: #e9e9df;
+  --dim: #a5ada6;
+  --muted: #707b75;
+  --panel: #1c2421;
+  --panel-2: #232d29;
+  --line: #35423c;
+  --lime: #d4ec83;
+  --lime-dark: #263321;
+  --amber: #e3ae65;
+  --red: #ec786b;
+  --mono: 'DM Mono', monospace;
+  --display: 'Space Grotesk', sans-serif;
+}
+* { box-sizing: border-box; }
+html, body, #root { margin: 0; min-height: 100%; width: 100%; }
+body { min-height: 100vh; background: #141918; color: var(--ink); }
+button { font: inherit; }
+button:focus-visible { outline: 2px solid var(--lime); outline-offset: 3px; }
+::selection { background: #d4ec83; color: #172019; }
+.grain::after { content: ''; position: fixed; inset: 0; z-index: 20; pointer-events: none; opacity: .035; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.78' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.48'/%3E%3C/svg%3E"); }
+.fade-up { animation: fade-up .55s cubic-bezier(.2,.8,.2,1) both; }
+@keyframes fade-up { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+.pulse-dot { animation: pulse 2s ease-in-out infinite; }
+@keyframes pulse { 50% { opacity: .4; transform: scale(.88); } }

@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Kitchen Hazard Simulator"
+description = "A walkable first-person-style kitchen safety training simulator. Players search six kitchen areas for randomized hazards, identify risks, choose corrective actions, and review their safety score."
+version = "1.0.0"
+id = "artifacts/kitchen-hazard-simulator"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 22976
+
+[services.development]
+run = "pnpm --filter @workspace/kitchen-hazard-simulator run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/kitchen-hazard-simulator", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/kitchen-hazard-simulator/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "22976"
+BASE_PATH = "/"
